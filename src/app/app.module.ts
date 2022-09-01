@@ -17,6 +17,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { AzureAuthSharedService } from './services/azure-auth-shared.service';
+
 
 const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator.userAgent.indexOf('Trident') > -1
 
@@ -71,7 +73,7 @@ const isIE = window.navigator.userAgent.indexOf('MSIE') > -1 || window.navigator
     provide:HTTP_INTERCEPTORS,
     useClass:MsalInterceptor,
     multi:true
-  },MsalGuard],
+  },MsalGuard, AzureAuthSharedService],
   bootstrap: [AppComponent,MsalRedirectComponent]
 })
 export class AppModule { }
